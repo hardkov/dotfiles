@@ -1,0 +1,11 @@
+accierro.ts-snippets
+dbaeumer.vscode-eslint
+esbenp.prettier-vscode
+hediet.vscode-drawio
+ms-python.python
+ms-python.vscode-pylance
+ms-toolsai.jupyter
+ms-vsliveshare.vsliveshare
+tht13.python
+vscodevim.vim
+yzane.markdown-pdf
