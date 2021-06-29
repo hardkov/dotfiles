@@ -1,5 +1,5 @@
-vscode +
-zsh (oh-my-zsh) +
-tmux (tmp, tmux-yank) +
+vscode 
+zsh (oh-my-zsh) 
+tmux (tmp, tmux-yank) 
 powerline
 
