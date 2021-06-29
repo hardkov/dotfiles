@@ -1,0 +1,5 @@
+vscode +
+zsh (oh-my-zsh) +
+tmux (tmp, tmux-yank) +
+powerline
+
