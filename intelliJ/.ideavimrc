@@ -1,0 +1,9 @@
+" Enable vim-surround plugin
+set surround
+
+" Disable annoying visialbell
+set visualbell
+set t_vb= 
+
+" Relative num lines
+:set relativenumber
