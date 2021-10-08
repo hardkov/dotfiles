@@ -1,0 +1,4 @@
+[/]
+maximize=['<Primary><Shift>k']
+move-to-monitor-left=['<Primary><Shift>h']
+move-to-monitor-right=['<Primary><Shift>l']

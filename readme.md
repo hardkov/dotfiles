@@ -77,7 +77,76 @@
 	*	Google (Gmail)
 	*	Linked in
 
-Moje keybindingi (linux):
+
+# Combined into script
+## Code
+```sh
+# basic programs
+sudo apt install vim
+sudo apt install git
+
+# zsh
+Sudo apt install zsh
+Chsh -s $(which zsh)
+cp .zshrc .zshrc #TODO
+
+# oh-my-zsh
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+# zsh-vi-mode
+git clone https://github.com/jeffreytse/zsh-vi-mode \ $ZSH/custom/plugins/zsh-vi-mode
+
+# tmux
+sudo apt install tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+cp .tmux.conf .tmux.conf #TODO
+sudo apt-get install xclip 
+
+# vscode:
+sudo snap install --classsic code
+Install all extensions from file (copy cat output) #TODO
+cp settings.json ~/.config/Code/User/settings.json #TODO
+
+# key shortcuts
+dconf load '/org/gnome/desktop/wm/keybindings/' < keybindings.dconf
+dconf load '/org/gnome/mutter/keybindings/' < keybindings2.dconf
+
+# reboot at the end
+reboot
+```
+
+## Actions
+* Install gita
+* Klucze ssh do githuba: W .ssh trzeba dodać klucz pobrany z girhuba (można wygenerowac jeszcze raz)
+* git clone dotfiles
+* run script
+* Terminalowy stuff
+	* Pobrać 4 fonty z https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k i zainstalować je
+	* Wybrać fonty w terminalu, usunąć dzwonek w terminalu i zmienić kolor terminala na solarized dark
+	* Konfiguracyjny wizard lub pobrane z pliku (zaktualizować repo) - P10k configure
+* Install tmux plugins with prefix + I
+* Chrome:
+	* Pobrać .deb ze strony
+	* Sudo dpkg -i <pakydż>
+	* Ustawić żeby taby się otwierały po zamknięciu
+	* Vimium zainstalować
+* Zainstalować discorda
+	* Pobrać .deb
+	* Sudo dkpg - i <paczka>
+* Discord
+	* Pobrać paczke z neta
+	* Sudo dpkg -i <paczka>
+	* Czasami brakuje jakis zaleznosci ale i tak działa
+* Wszystko wywalić z favourites z lewej strony ekranu
+* Zmienić keyboard layout na polski:
+	* Settings -> Regions & Language -> usunąć US i dodać polish
+* Zalogować się na wszystkie konta i ewentualnie zbookmarkować
+	*	Poczta agh
+	*	Google (Gmail)
+	*	Linked in
+
+Moje keybindingi (linux)
 Pozycjonowanie okna na jednym ekranie
 Lewa ctrl + h
 Prawa ctrl + l
@@ -85,3 +154,12 @@ Full ctrl + shitft + k
 Pozycjonowanie okna między ekranami
 Poprzedni ekran ctrl + shift + h
 Następny ekran ctrl + shitft + l
+
+
+# TODO
+* refine (na angielski tez) runbooku
+* refine (na angielski też) akcji
+* dodać instalacje systemu
+* keybindingi
+* refactor skryptu
+* skrypt do odinstalowywania
