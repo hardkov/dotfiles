@@ -20,8 +20,8 @@
 
 ##### In terminal
 
-- Pobrać vima:
-  - Sudo apt install vim
+- Install vim:
+  - `sudo apt install vim`
 - Pobrać gita:
   - Sudo apt install git
   - Klucze ssh do githuba: W .ssh trzeba dodać klucz pobrany z girhuba (można wygenerowac jeszcze raz)
@@ -171,8 +171,6 @@ Następny ekran ctrl + shitft + l
 
 # TODO
 
-- dodać jeszcze jedne keybindingi
-- dalszy debug skryptu
 - refine (na angielski tez) runbooku
 - refine (na angielski też) akcji
 - dodać instalacje systemu
