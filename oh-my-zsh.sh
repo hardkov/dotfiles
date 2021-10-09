@@ -16,3 +16,4 @@ git clone $ZSH_VI_MODE_URL $HOME/.oh-my-zsh/custom/plugins/zsh-vi-mode
 
 # powerlevel
 git clone --depth=1 $POWERLEVEL_URL ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+cp "$DOTFILES_ROOT/powerlevel/.p10k.zsh" ~/.p10k.zsh

@@ -127,6 +127,9 @@ reboot
 
 ## Actions
 
+- Terminalowy stuff
+  - Pobrać 4 fonty z https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k i zainstalować je
+  - Wybrać fonty w terminalu (MesloLGS NF Regular), usunąć dzwonek w terminalu i zmienić kolor terminala na solarized dark
 - Install gita
 - Klucze ssh do githuba: W .ssh trzeba dodać klucz pobrany z girhuba (można wygenerowac jeszcze raz)
 - git clone dotfiles
@@ -134,9 +137,7 @@ reboot
 - run script
 - reboot
 - nie rób nic w konfiguracyjnym wizardzie
-- Terminalowy stuff
-  - Pobrać 4 fonty z https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k i zainstalować je
-  - Wybrać fonty w terminalu, usunąć dzwonek w terminalu i zmienić kolor terminala na solarized dark
+- run script 2, trzeba dac exit z nowego zsh żeby zaczęły się pobierać rzeczy
   - Konfiguracyjny wizard lub pobrane z pliku (zaktualizować repo) - P10k configure
 - Install tmux plugins with prefix + I
 - Chrome:
@@ -179,3 +180,4 @@ Następny ekran ctrl + shitft + l
 - dodać instrukcje jak updatować runbook
 - refactor skryptu
 - skrypt do odinstalowywania
+- automate font installing

@@ -8,6 +8,7 @@ TPM_URL="https://github.com/tmux-plugins/tpm"
 dconf load '/org/gnome/desktop/wm/keybindings/' < "$DOTFILES_ROOT/keybindings/keybindings.dconf"
 dconf load '/org/gnome/mutter/keybindings/' <  "$DOTFILES_ROOT/keybindings/keybindings-mutter.dconf"
 dconf load '/org/gnome/settings-daemon/plugins/media-keys/' <  "$DOTFILES_ROOT/keybindings/keybindings-media-keys.dconf"
+dconf load '/org/gnome/terminal/legacy/profiles:/' < "$DOTFILES_ROOT/keybindings/gnome-terminal-profiles.dconf" 
 
 # basic programs
 sudo apt install vim
@@ -33,6 +34,3 @@ cp "$DOTFILES_ROOT/vscode/settings.json" ~/.config/Code/User/settings.json
 # zsh
 sudo apt install zsh
 chsh -s $(which zsh)
-
-# probably reboot here 
-
