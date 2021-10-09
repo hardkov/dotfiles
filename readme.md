@@ -1,181 +1,134 @@
 ## Linux & Windows dual boot
-
-...
+Prepare:
+- Bootable devices with win 10 and ubuntu 20. Startup disk creator for ubuntu and rufus for windows.
+- Access to internet
+- Access to power
 
 ### Windows
 
 #### OS
+- Plug in bootable device
+- Enter installation wizard
+- Remove all partitions
+- Create a reasonable sized partition (110GB) from unused space and leave rest for linux
+- Windows will create several other partitions for its own use. Choose the primary one and start installation
 
-...
-
-#### Programs
-
-...
+#### Setup
+- Log in to microsoft account, disabling most of services.
+- Download google chrome:
+  - Set the option that reopens tab after closing the browser
+  - Install vimium extension
 
 ### Linux
 
 #### OS
+- Plug in bootable device
+- Reboot and try to enter installation wizard:
+  - There might be several boot options for your device and only one can be proper
+  - Remember to disable:
+    - Fast startup on windows
+    - Secure boot
+  - If installation is not opening try to remove everything connected by usb-c
+  - System should use UEFI
+- Partitioning:
+  - Root: 20 - 30GB
+  - Swap: 16GB (size of RAM)
+  - Boot (might be needed when dual booting): ?
+  - Home (not necessery but nice to have): All that left
+- Complete installation
 
-#### Programs
+#### Setup
 
-##### In terminal
+##### Applications
+- Download chrome:
+  - `sudo dpkg -i {package.deb}`
+  - Set the option that reopens tab after closing the browser
+  - Install vimium extension
+- Download discord
+  - `sudo dpkg -i {package.deb}`
+- Remove all icons from favourites on the left of the screen
+- Change keyboard layout to polish
+  - Settings -> Regions & Language -> delete US and add polish
+- Log into all accounts and eventually bookmark them
+  - Poczta agh
+  - Google (Gmail)
+  - Linked in
 
+##### Quick install
+- Download 4 recommended fonts from https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k and install them (by double clicking)
+- Install git:
+  - `sudo apt install git`
+  - Add github ssh keys (~/.ssh directory)
+- Setup repo
+  - `git clone git@github.com:hardkov/dotfiles.git && cd dotfiles`
+  - `chmod u+x install.sh`
+  - `chmod u+x oh-my-zsh.sh`
+- `./install.sh`
+- `reboot`
+- Open terminal and quit the zsh configuration wizard
+- Run `./oh-my-zsh.sh` and after new zsh loads exit it (remaining files will download then)
+- Open terminal and install tmux plugins with prefix + I
+
+##### Manual install
 - Install vim:
   - `sudo apt install vim`
-- Pobrać gita:
-  - Sudo apt install git
-  - Klucze ssh do githuba: W .ssh trzeba dodać klucz pobrany z girhuba (można wygenerowac jeszcze raz)
-- Instalacja zsh:
-  - Sudo apt install zsh
-  - Chsh -s $(which zsh)
-  - Reboot
-  - Konfiguracyjny wizard lub gotowy plik .zshrc (trzeba zaktualizować repo)
-  - Instalacja oh-my-zsh
-    - sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-- Instalacja powerlevel10k
 
-  - git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-  - ZSH_THEME="powerlevel10k/powerlevel10k" in ~/.zshrc (powinno być w pliku)
-  - Pobrać 4 fonty z https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k i zainstalować je
-  - Wybrać fonty w terminalu, usunąć dzwonek w terminalu i zmienić kolor terminala na solarized dark
-  - Konfiguracyjny wizard lub pobrane z pliku (zaktualizować repo) - P10k configure
+- Install git:
+  - `sudo apt install git`
+  - Add github ssh keys (~/.ssh directory)
 
-- Zsh vi mode imporoved
+- Install zsh:
+  - `sudo apt install zsh`
+  - `chsh -s $(which zsh)`
+  - reboot
+  - configuration wizard can be cancelled as it will be overwritten anyway
+  - Install oh-my-zsh:
+    - `sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 
-  - git clone https://github.com/jeffreytse/zsh-vi-mode \ \* $ZSH/custom/plugins/zsh-vi-mode
-  - plugins+=(zsh-vi-mode)
+- Install powerlevel10k:
+  - `git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k`
+  - Put `ZSH_THEME="powerlevel10k/powerlevel10k"` in ~/.zshrc (if not using saved config)
+  - Download 4 recommended fonts from https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k and install them (by double clicking)
+    - Chose one of this font (regular) in terminal, remove bell sound and change terminal color to solarized dark OR
+    - load saved profile: `dconf load '/org/gnome/terminal/legacy/profiles:/' < "$DOTFILES_ROOT/keybindings/gnome-terminal-profiles.dconf"` 
+  - Open configuration wizard (`p10k configure`) or use predefined file (.p10k.zsh)
 
-- Tmux
+- Install zsh-vi-mode plugin
+  - `git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH/custom/plugins/zsh-vi-mode`
+  - append `zsh-vi-mode` to zsh plugins (if not using saved config)
 
-  - Sudo apt install tmux
-  - git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  - Copy config .tmux.conf
-  - Install tmux-yank dependencies (sudo apt-get install xclip)
-  - Install plugins with prefix + I
+- Install tmux
+  - `sudo apt install tmux`
+  - `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+  - copy .tmux.conf file or create one from scratch 
+  - Install tmux-yank dependencies (`sudo apt-get install xclip`)
+  - Install tmux plugins with prefix + I
 
-- Vscode:
-- Sudo snap install --classsic code
+- Install vscode:
+- `sudo snap install --classsic code`
 - Install all extensions from file (copy cat output)
 - Copy settings to ~/.config/Code/User/settings.json
 
 - Key shortcuts
   - Import shortcuts from file:
-  - dconf load '/org/gnome/desktop/wm/keybindings/' < keybindings.dconf
-  - dconf load '/org/gnome/mutter/keybindings/' < keybindings2.dconf
+    - dconf load '/org/gnome/desktop/wm/keybindings/' < keybindings.dconf
+    - dconf load '/org/gnome/mutter/keybindings/' < keybindings-mutter.dconf
+    - dconf load '/org/gnome/settings-daemon/plugins/media-keys/' < keybindings-media-keys.dconf
+  - OR set them manually 
 
-##### Manually
+#### How to update?
 
-- Chrome:
-  - Pobrać .deb ze strony
-  - Sudo dpkg -i <pakydż>
-  - Ustawić żeby taby się otwierały po zamknięciu
-  - Vimium zainstalować
-- Zainstalować discorda
-  - Pobrać .deb
-  - Sudo dkpg - i <paczka>
-- Discord
-  - Pobrać paczke z neta
-  - Sudo dpkg -i <paczka>
-  - Czasami brakuje jakis zaleznosci ale i tak działa
-- Wszystko wywalić z favourites z lewej strony ekranu
-- Zmienić keyboard layout na polski:
-  - Settings -> Regions & Language -> usunąć US i dodać polish
-- Zalogować się na wszystkie konta i ewentualnie zbookmarkować
-  - Poczta agh
-  - Google (Gmail)
-  - Linked in
-
-# Combined into script
-
-## Code
-
-```sh
-# basic programs
-sudo apt install vim
-sudo apt install git
-
-# zsh
-Sudo apt install zsh
-Chsh -s $(which zsh)
-cp .zshrc .zshrc #TODO
-
-# oh-my-zsh
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-# zsh-vi-mode
-git clone https://github.com/jeffreytse/zsh-vi-mode \ $ZSH/custom/plugins/zsh-vi-mode
-
-# tmux
-sudo apt install tmux
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-cp .tmux.conf .tmux.conf #TODO
-sudo apt-get install xclip
-
-# vscode:
-sudo snap install --classsic code
-Install all extensions from file (copy cat output) #TODO
-cp settings.json ~/.config/Code/User/settings.json #TODO
-
-# key shortcuts
-dconf load '/org/gnome/desktop/wm/keybindings/' < keybindings.dconf
-dconf load '/org/gnome/mutter/keybindings/' < keybindings2.dconf
-
-# reboot at the end
-reboot
-```
-
-## Actions
-
-- Terminalowy stuff
-  - Pobrać 4 fonty z https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k i zainstalować je
-  - Wybrać fonty w terminalu (MesloLGS NF Regular), usunąć dzwonek w terminalu i zmienić kolor terminala na solarized dark
-- Install gita
-- Klucze ssh do githuba: W .ssh trzeba dodać klucz pobrany z girhuba (można wygenerowac jeszcze raz)
-- git clone dotfiles
-- nadać prawa dostępu do skryptu jednego i drugiego
-- run script
-- reboot
-- nie rób nic w konfiguracyjnym wizardzie
-- run script 2, trzeba dac exit z nowego zsh żeby zaczęły się pobierać rzeczy
-  - Konfiguracyjny wizard lub pobrane z pliku (zaktualizować repo) - P10k configure
-- Install tmux plugins with prefix + I
-- Chrome:
-  - Pobrać .deb ze strony
-  - Sudo dpkg -i <pakydż>
-  - Ustawić żeby taby się otwierały po zamknięciu
-  - Vimium zainstalować
-- Zainstalować discorda
-  - Pobrać .deb
-  - Sudo dkpg - i <paczka>
-- Discord
-  - Pobrać paczke z neta
-  - Sudo dpkg -i <paczka>
-  - Czasami brakuje jakis zaleznosci ale i tak działa
-- Wszystko wywalić z favourites z lewej strony ekranu
-- Zmienić keyboard layout na polski:
-  - Settings -> Regions & Language -> usunąć US i dodać polish
-- Zalogować się na wszystkie konta i ewentualnie zbookmarkować
-  - Poczta agh
-  - Google (Gmail)
-  - Linked in
-
-Moje keybindingi (linux)
-Pozycjonowanie okna na jednym ekranie
-Lewa ctrl + h
-Prawa ctrl + l
-Full ctrl + shitft + k
-Pozycjonowanie okna między ekranami
-Poprzedni ekran ctrl + shift + h
-Następny ekran ctrl + shitft + l
+#### Keybindings
+- Window:
+  - left-side `ctrl + h`
+  - right-side `ctrl + l`
+- Screens:
+  - Full screen `ctrl + shift + k`
+  - Previous display `ctrl + shift + h`
+  - Next display `ctrl + shift + l`
+  - Lock screen `ctrl + alt + q`
 
 # TODO
-
-- refine (na angielski tez) runbooku
-- refine (na angielski też) akcji
-- dodać instalacje systemu
-- keybindingi
-- dodać instrukcje jak updatować runbook
-- refactor skryptu
-- skrypt do odinstalowywania
-- automate font installing
+- Instruction how to update files in this repo
+- Uninstalling script
+- Automate font installing
