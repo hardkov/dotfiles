@@ -132,6 +132,8 @@ reboot
 - git clone dotfiles
 - nadać prawa dostępu do skryptu jednego i drugiego
 - run script
+- reboot
+- nie rób nic w konfiguracyjnym wizardzie
 - Terminalowy stuff
   - Pobrać 4 fonty z https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k i zainstalować je
   - Wybrać fonty w terminalu, usunąć dzwonek w terminalu i zmienić kolor terminala na solarized dark

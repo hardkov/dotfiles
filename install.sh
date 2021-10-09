@@ -3,6 +3,12 @@ DOTFILES_ROOT="."
 
 TPM_URL="https://github.com/tmux-plugins/tpm"
 
+
+# key shortcuts
+dconf load '/org/gnome/desktop/wm/keybindings/' < "$DOTFILES_ROOT/keybindings/keybindings.dconf"
+dconf load '/org/gnome/mutter/keybindings/' <  "$DOTFILES_ROOT/keybindings/keybindings-mutter.dconf"
+dconf load '/org/gnome/settings-daemon/plugins/media-keys/' <  "$DOTFILES_ROOT/keybindings/keybindings-media-keys.dconf"
+
 # basic programs
 sudo apt install vim
 
@@ -23,12 +29,6 @@ rm "$DOTFILES_ROOT/tmp_script.sh"
 
 # vscode - settings
 cp "$DOTFILES_ROOT/vscode/settings.json" ~/.config/Code/User/settings.json
-
-
-# key shortcuts
-dconf load '/org/gnome/desktop/wm/keybindings/' < "$DOTFILES_ROOT/keybindings/keybindings.dconf"
-dconf load '/org/gnome/mutter/keybindings/' <  "$DOTFILES_ROOT/keybindings/keybindings-mutter.dconf"
-dconf load '/org/gnome/settings-daemon/plugins/media-keys/' <  "$DOTFILES_ROOT/keybindings/keybindings-media-keys.dconf"
 
 # zsh
 sudo apt install zsh

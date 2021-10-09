@@ -12,7 +12,7 @@ sh -c "$(wget -O- $OH_MY_ZSH_URL)"
 cp "$DOTFILES_ROOT/zsh/.zshrc" ~/.zshrc
 
 # zsh-vi-mode
-git clone $ZSH_VI_MODE_URL \ $HOME/.oh-my-zsh/custom/plugins/zsh-vi-mode
+git clone $ZSH_VI_MODE_URL $HOME/.oh-my-zsh/custom/plugins/zsh-vi-mode
 
 # powerlevel
 git clone --depth=1 $POWERLEVEL_URL ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
