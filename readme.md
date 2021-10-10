@@ -99,13 +99,13 @@ Prepare:
   - `sudo apt install git`
   - Add github ssh keys (~/.ssh directory):
     - `ssh-keygen -t ed25519 -C "your_email@example.com"`
-    - add .pub key to github (can also invalidate the previous one if not used)
+    - Add .pub key to github (can also invalidate the previous one if not used)
 
 - Install zsh:
   - `sudo apt install zsh`
   - `chsh -s $(which zsh)`
-  - reboot
-  - configuration wizard can be cancelled as it will be overwritten anyway
+  - `reboot`
+  - Configuration wizard can be cancelled as it will be overwritten anyway
   - Install oh-my-zsh:
     - `sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 
@@ -114,33 +114,42 @@ Prepare:
   - Put `ZSH_THEME="powerlevel10k/powerlevel10k"` in ~/.zshrc (if not using saved config)
   - Download 4 recommended fonts from https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k and install them (by double clicking)
     - Chose one of this font (regular) in terminal, remove bell sound and change terminal color to solarized dark OR
-    - load saved profile: `dconf load '/org/gnome/terminal/legacy/profiles:/' < "$DOTFILES_ROOT/keybindings/gnome-terminal-profiles.dconf"`
-  - Open configuration wizard (`p10k configure`) or use predefined file (.p10k.zsh)
+    - Load saved profile: `dconf load '/org/gnome/terminal/legacy/profiles:/' < "$DOTFILES_ROOT/keybindings/gnome-terminal-profiles.dconf"`
+  - Open configuration wizard (`p10k configure`) or use predefined file (`.p10k.zsh`)
 
-- Install zsh-vi-mode plugin
+- Install zsh-vi-mode plugin:
   - `git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH/custom/plugins/zsh-vi-mode`
-  - append `zsh-vi-mode` to zsh plugins (if not using saved config)
+  - Append `zsh-vi-mode` to zsh plugins (if not using saved config)
 
-- Install tmux
+- Install tmux:
   - `sudo apt install tmux`
   - `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
-  - copy .tmux.conf file or create one from scratch
+  - copy `.tmux.conf` file or create one from scratch
   - Install tmux-yank dependencies (`sudo apt-get install xclip`)
   - Install tmux plugins with prefix + I
 
 - Install vscode:
   - `sudo snap install --classsic code`
   - Install all extensions from file (copy cat output)
-  - Copy settings to ~/.config/Code/User/settings.json
+  - Copy settings to `~/.config/Code/User/settings.json`
 
 - Key shortcuts
   - Import shortcuts from file:
-    - dconf load '/org/gnome/desktop/wm/keybindings/' < keybindings.dconf
-    - dconf load '/org/gnome/mutter/keybindings/' < keybindings-mutter.dconf
-    - dconf load '/org/gnome/settings-daemon/plugins/media-keys/' < keybindings-media-keys.dconf
+    - `dconf load '/org/gnome/desktop/wm/keybindings/' < keybindings.dconf`
+    - `dconf load '/org/gnome/mutter/keybindings/' < keybindings-mutter.dconf`
+    - `dconf load '/org/gnome/settings-daemon/plugins/media-keys/' < keybindings-media-keys.dconf`
   - OR set them manually
 
-#### How to update?
+#### Updating files
+- If URLs to external resource change, update them in both scripts
+- Key shortcuts & terminal profiles:
+  - `dconf dump '/org/gnome/desktop/wm/keybindings/' > keybindings.dconf`
+  - `dconf dump '/org/gnome/mutter/keybindings/' >  keybindings-mutter.dconf`
+  - `dconf dump '/org/gnome/settings-daemon/plugins/media-keys/' >  keybindings-media-keys.dconf`
+  - `dconf dump '/org/gnome/terminal/legacy/profiles:/' > gnome-terminal-profiles.dconf`
+  - When tryging to figure out dconf schema use dconf-editor
+- VScode extension:
+  - `code --list-extensions | xargs -L 1 echo code --install-extension > extensions.txt`
 
 #### Keybindings
 
@@ -153,11 +162,10 @@ Prepare:
   - Next display `ctrl + shift + l`
   - Lock screen `ctrl + alt + q`
 
-# TODO
-
+**#TODO**
 - The same for mac
 - Instruction how to update files in this repo
-- Uninstalling script
+- Uninstaller
 - Automate font installing
 - SDKMAN?
 - nvm?
