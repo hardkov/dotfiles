@@ -42,7 +42,7 @@ Prepare:
   - Root: 20 - 30GB
   - Swap: 16GB (size of RAM)
   - Boot: 1GB, worth creating as:
-    - System boots quicker (quicker files systems checks)
+    - System boots quicker (quick files systems checks)
     - It is easier to apply some fancy file systems, encription
     - Less chance to accidentally overwrite bootloader
   - Home: All that left
@@ -51,7 +51,7 @@ Prepare:
 
 #### Setup
 **When using tmux-yank with zsh-vi-mode remember to paste from clipboard while in insert mode. Otherwise "g" letters will be removed from the content.**
-##### Applications
+##### Basics
 
 - Download chrome:
   - `sudo dpkg -i {package.deb}`
@@ -59,17 +59,16 @@ Prepare:
   - Install vimium extension
 - Download discord
   - `sudo dpkg -i {package.deb}`
-  - if there are problems with dependencies (dpkg does not install them) `sudo apt --fix-broken install`
+  - If there are problems with dependencies (dpkg does not install them) `sudo apt --fix-broken install`
 - Remove all icons from favourites on the left of the screen
-
-##### Quick install
-
 - Download 4 recommended fonts from https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k and install them (by double clicking)
 - Install git:
   - `sudo apt install git`
   - Add github ssh keys (~/.ssh directory):
     - `ssh-keygen -t ed25519 -C "your_email@example.com"`
     - add .pub key to github (can also invalidate the previous one if not used)
+
+##### Quick install
 - Setup repo
   - `git clone git@github.com:hardkov/dotfiles.git && cd dotfiles`
   - `chmod u+x install.sh`
@@ -141,7 +140,7 @@ Prepare:
   - OR set them manually
 
 #### Updating files
-- If URLs to external resource change, update them in both scripts
+- If URLs to external resources change, update them in both scripts
 - Key shortcuts & terminal profiles:
   - `dconf dump '/org/gnome/desktop/wm/keybindings/' > keybindings.dconf`
   - `dconf dump '/org/gnome/mutter/keybindings/' >  keybindings-mutter.dconf`
