@@ -51,6 +51,7 @@ Prepare:
 
 #### Setup
 **When using tmux-yank with zsh-vi-mode remember to paste from clipboard while in insert mode. Otherwise "g" letters will be removed from the content.**
+
 ##### Basics
 
 - Download chrome:
@@ -85,7 +86,8 @@ Prepare:
   - Poczta agh
   - Wirtualna uczelnia
   - Google (Gmail)
-  - Linked in
+  - Linkedin
+  - Facebook, Messenger
 - Bookmark most frequently used pages
 - Toogle "show bookmark option"
 
