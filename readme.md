@@ -93,6 +93,14 @@ Prepare:
 
 ##### Manual install
 
+- **macOS**
+  - Install brew
+  - Install spectacle
+    - Import shortcuts: `cp Shortcuts.json  $HOME/Library/Application Support/Spectacle`
+  - Install iterm
+  - Setup startup programms: System Preferences > Users & Groups > Login Items:
+    - iterm, chrome, slack, spectacle
+
 - Install vim:
   - `sudo apt install vim`
 
@@ -108,7 +116,9 @@ Prepare:
   - `reboot`
   - Configuration wizard can be cancelled as it will be overwritten anyway
   - Install oh-my-zsh:
+    - **macOS** Install wget
     - `sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+  - Copy `.zshrc` 
 
 - Install powerlevel10k:
   - `git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k`
@@ -123,16 +133,24 @@ Prepare:
   - Append `zsh-vi-mode` to zsh plugins (if not using saved config)
 
 - Install tmux:
-  - `sudo apt install tmux`
+  - `sudo apt install tmux` **macOS** use brew
   - `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
   - copy `.tmux.conf` file or create one from scratch
   - Install tmux-yank dependencies (`sudo apt-get install xclip`)
+    - Let terminal access clipboard (via Preferences)
   - Install tmux plugins with prefix + I
+  - **macOS** Custom key shortcuts using hex codes `Preferences -> Profiles -> Default -> Keys`:
+    - Cmd + h: 0x08
+    - Cmd + j: 0x0A
+    - Cmd + k: 0x0B
+    - Cmd + l: 0x0C
 
 - Install vscode:
   - `sudo snap install --classsic code`
   - Install all extensions from file (copy cat output)
   - Copy settings to `~/.config/Code/User/settings.json`
+
+- Copy IdeaVim config `.ideavimrc`
 
 - Key shortcuts
   - Import shortcuts from file:
